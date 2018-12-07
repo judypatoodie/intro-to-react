@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My First React App</title>
+    <title>User Form</title>
   </head>
 
   <body>
@@ -10,18 +10,26 @@
      <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.1.0/umd/react-dom.development.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
      <script type="text/babel">
-         class Greeting extends React.Component {
+         class UserInfoForm extends React.Component {
          render() {
            return (
              <div>
-               <h1>Hello World!</h1>
+               <h2> User Info Form </h2>
+               <form>
+                 <label>
+                 {this.props.label}
+                   <input type="text" name="name" value={this.props.hintTxt} />
+                 </label>
+               </form>
+
+              <p><button >Go</button></p>
              </div>
            );
          }
        }
- 
+
        ReactDOM.render(
-         <Greeting />, document.getElementById('app')
+         <UserInfoForm label="Full Name: " hintTxt= "  type your name here"/>, document.getElementById('app')
        );
 
      </script>
