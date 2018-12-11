@@ -11,25 +11,45 @@
      <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
      <script type="text/babel">
          class UserInfoForm extends React.Component {
+        constructor(props){
+         super(props);
+         this.state = {
+           requiredField: 'Full Name',
+           instructions: 'Please fill out the following required field'
+
+         }
+       }
+
          render() {
            return (
              <div>
                <h2> User Info Form </h2>
+               <p><i>{this.state.instructions}</i>: <b>{this.state.requiredField}</b> </p>
                <form>
                  <label>
                  {this.props.label}
-                   <input type="text" name="name" value={this.props.hintTxt} />
                  </label>
+                 <input type="text" name="name" id="fullNameInput"/>
+                 <p>
+                   <label>
+                   Please Select your Gender:
+                   </label>
+                   <select>
+                     <option value="None"> </option>
+                     <option value="Female">Female</option>
+                     <option value="Male">Male</option>
+                   </select>
+                 </p>
                </form>
 
-              <p><button >Go</button></p>
+              <p><button onClick={() => alert('Thanks for submitting your full name.')}>Submit</button></p>
              </div>
            );
          }
        }
 
        ReactDOM.render(
-         <UserInfoForm label="Full Name: " hintTxt= "  type your name here"/>, document.getElementById('app')
+         <UserInfoForm label="Full Name: " />, document.getElementById('app')
        );
 
      </script>
